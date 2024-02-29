@@ -53,7 +53,6 @@ namespace AzureApiProject.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Email,Phone")] EmployeeEntity employeeEntity)
         {
             if (ModelState.IsValid)
@@ -85,7 +84,7 @@ namespace AzureApiProject.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Phone")] EmployeeEntity employeeEntity)
         {
             if (id != employeeEntity.Id)
@@ -136,7 +135,7 @@ namespace AzureApiProject.Controllers
 
         // POST: EmployeeEntities/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var employeeEntity = await _context.employees.FindAsync(id);
